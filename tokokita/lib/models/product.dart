@@ -64,14 +64,25 @@ double hitungTotalBelanja(List<Product> keranjang) {
 
 // tugas mandiri 2, 8 dummy data
 List<Product> daftarProduk = [
+
   Product(id: 'P001', name: 'Sepatu Adidas', price: 200000.0, imageUrl: 'img1.png', category: 'Fashion', stock: 15),
-  Product(id: 'P002', name: 'Celana Jeans', price: 150000.0, imageUrl: 'img2.png', category: 'Fashion', stock: 5),
+  DiscountedProduct(id: 'P002', name: 'Celana Jeans', price: 150000.0, imageUrl: 'img2.png', category: 'Fashion', stock: 5, discountPercent: 20.0),
   Product(id: 'P003', name: 'Kemeja Flanel', price: 100000.0, imageUrl: 'img3.png', category: 'Fashion', stock: 8),
   Product(id: 'P004', name: 'Iphone 17', price: 18000000.0, imageUrl: 'img4.png', category: 'Elektronik', stock: 3),
   Product(id: 'P005', name: 'Kripik Kentang', price: 18000.0, imageUrl: 'img5.png', category: 'Makanan', stock: 16),
   Product(id: 'P006', name: 'Donat Gula', price: 6000.0, imageUrl: 'img6.png', category: 'Makanan', stock: 20),
-  Product(id: 'P007', name: 'Laptop Gaming', price: 12000000.0, imageUrl: 'img7.png', category: 'Elektronik', stock: 4),
-  Product(id: 'P008', name: 'Sweater', price: 75000.0, imageUrl: 'img8.png', category: 'Fashion', stock: 7),
+  DiscountedProduct(id: 'P007', name: 'Laptop Gaming', price: 12000000.0, imageUrl: 'img7.png', category: 'Elektronik', stock: 4, discountPercent: 30.0),
+  Product(id: 'P008', name: 'Tas Ransel', price: 75000.0, imageUrl: 'img8.png', category: 'Fashion', stock: 7),
+  
+  Product(id: 'P009', name: 'Earphone TWS', price: 350000.0, imageUrl: 'img9.png', category: 'Elektronik', stock: 5),
+  Product(id: 'P010', name: 'Monitor 24 Inch', price: 2500000.0, imageUrl: 'img10.png', category: 'Elektronik', stock: 10),
+  Product(id: 'P011', name: 'Es Teh Manis', price: 6000.0, imageUrl: 'img11.png', category: 'Makanan', stock: 12),
+  Product(id: 'P012', name: 'Kopi Susu Gula Aren', price: 20000.0, imageUrl: 'img12.png', category: 'Makanan', stock: 20),
+  Product(id: 'P013', name: 'Topi Pantai', price: 55000.0, imageUrl: 'img13.png', category: 'Fashion', stock: 14),
+  Product(id: 'P014', name: 'Smartwatch', price: 1500000.0, imageUrl: 'img14.png', category: 'Elektronik', stock: 7),
+  Product(id: 'P015', name: 'Pashmina Viscose', price: 45000.0, imageUrl: 'img15.png', category: 'Fashion', stock: 18),
+  Product(id: 'P016', name: 'Susu UHT 1 Liter', price: 18000.0, imageUrl: 'img16.png', category: 'Makanan', stock: 25),
+  Product(id: 'P017', name: 'Jaket Kulit', price: 350000.0, imageUrl: 'img17.png', category: 'Fashion', stock: 8)
 ];
 
 void main() {
