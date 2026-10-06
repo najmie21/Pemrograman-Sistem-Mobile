@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'screens/home_page.dart';
+import 'screens/login_page.dart';
+import 'screens/main_page.dart'; 
+import 'screens/product_detail_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,10 +12,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+   return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'TokoKita',
-      home: const HomePage(), 
+      
+      // Aplikasi dibuka pertama kali langsung ke rute '/' (MainPage)
+      initialRoute: '/', 
+      
+      routes: {
+        '/': (context) => const MainPage(), // Halaman default: MainPage (beserta navbar dan HomePage)
+        '/detail': (context) => const ProductDetailPage(),
+        '/login': (context) => const LoginPage(),
+      },
     );
   }
 }

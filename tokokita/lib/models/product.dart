@@ -65,10 +65,10 @@ double hitungTotalBelanja(List<Product> keranjang) {
 // tugas mandiri 2, 8 dummy data
 List<Product> daftarProduk = [
 
-  Product(id: 'P001', name: 'Sepatu Adidas', price: 200000.0, imageUrl: 'img1.png', category: 'Fashion', stock: 15),
+  Product(id: 'P001', name: 'Sepatu Adidas', price: 200000.0, imageUrl: 'img1.png', category: 'Fashion', stock: 15, description: 'Sepatu Adidas original, nyaman dipakai untuk olahraga dan aktivitas sehari-hari'),
   DiscountedProduct(id: 'P002', name: 'Celana Jeans', price: 150000.0, imageUrl: 'img2.png', category: 'Fashion', stock: 5, discountPercent: 20.0),
-  Product(id: 'P003', name: 'Kemeja Flanel', price: 100000.0, imageUrl: 'img3.png', category: 'Fashion', stock: 8),
-  Product(id: 'P004', name: 'Iphone 17', price: 18000000.0, imageUrl: 'img4.png', category: 'Elektronik', stock: 3),
+  Product(id: 'P003', name: 'Kemeja Flanel', price: 100000.0, imageUrl: 'img3.png', category: 'Fashion', stock: 8, description: 'Kemeja flanel berkualitas tinggi, nyaman dipakai di cuaca dingin'),
+  Product(id: 'P004', name: 'Iphone 17', price: 18000000.0, imageUrl: 'img4.png', category: 'Elektronik', stock: 3, description: 'Iphone 17 terbaru dengan fitur canggih, kamera berkualitas tinggi, dan performa yang cepat. Cocok untuk pengguna yang menginginkan pengalaman smartphone premium.'),
   Product(id: 'P005', name: 'Kripik Kentang', price: 18000.0, imageUrl: 'img5.png', category: 'Makanan', stock: 16),
   Product(id: 'P006', name: 'Donat Gula', price: 6000.0, imageUrl: 'img6.png', category: 'Makanan', stock: 20),
   DiscountedProduct(id: 'P007', name: 'Laptop Gaming', price: 12000000.0, imageUrl: 'img7.png', category: 'Elektronik', stock: 4, discountPercent: 30.0),

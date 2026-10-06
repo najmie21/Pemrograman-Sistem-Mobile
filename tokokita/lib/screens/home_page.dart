@@ -7,54 +7,57 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( // scaffold = wadah utama UI  
-        backgroundColor: Colors.white,
-        body: SafeArea(
-            child: Column(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Column(
+          children: [
+            // HEADER 
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                    //header
-                    Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween, // Teks di kiri, ikon di kanan
-                            children: [
-                                // Column untuk menyusun judul dan subjudul ke bawah
-                                Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: const [
-                                        Text(
-                                            'TokoKita',
-                                            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 225, 83, 130)),
-                                        ),
-                                        SizedBox(height: 4),
-                                        Text(
-                                            'Selamat Datang di TokoKita',
-                                            style: TextStyle(fontSize: 14, color: Colors.grey),
-                                        ),
-                                    ],
-                                ),
-                                // Ikon Keranjang
-                                IconButton(
-                                    icon: const Icon(Icons.shopping_cart, color: Color.fromARGB(255, 225, 83, 130), size: 28),
-                                        onPressed: () {}
-                                ),
-                            ],
-                        ),
-                    ),
-                //header selesai
-
-                //tempat menaruh daftar produk
-                Expanded(
-                  child: ListView.builder(
-                  itemCount: daftarProduk.length,
-                  itemBuilder: (context, index) {
-                    return ProductCard(product: daftarProduk[index]);
-                   },
+                  // Teks di Kiri
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        'TokoKita',
+                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 225, 83, 130)),
+                      ),
+                      SizedBox(height: 4),
+                      Text('Selamat Datang di TokoKita', style: TextStyle(fontSize: 14, color: Colors.grey)),
+                    ],
                   ),
-                ),
+                  
+                  // Tombol Login di Kanan Atas
+                  IconButton(
+                  icon: const Icon(
+                    Icons.login, 
+                    color: Color.fromARGB(255, 225, 83, 130),
+                    size: 28,
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/login');
+                  },
+                  ),
                 ],
+              ),
             ),
+            
+            // --- DAFTAR PRODUK ---
+            Expanded(
+              child: ListView.builder(
+                itemCount: daftarProduk.length, 
+                itemBuilder: (context, index) {
+                  return ProductCard(product: daftarProduk[index]);
+                },
+              ),
+            ),
+          ],
         ),
+      ),
     );
   }
 }
