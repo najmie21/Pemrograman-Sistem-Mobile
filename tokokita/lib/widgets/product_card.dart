@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../screens/product_detail_page.dart';
 import '../models/product.dart';
 import 'price_label.dart';
 import 'stock_badge.dart';
@@ -23,14 +25,13 @@ class _ProductCardState extends State<ProductCard> {
     // BUNGKUS DENGAN GESTURE DETECTOR
     return GestureDetector(
       onTap: () async {
-        //  'await' untuk menunggu data balikan dari halaman detail
-        final result = await Navigator.pushNamed(
-          context, 
-          '/detail', 
-          arguments: widget.product, 
-        );
+        //routing getX : pindah halaman menuju detail produk
+         final result = await Get.to(
+            () => const ProductDetailPage(),
+            arguments: widget.product,
+          );
 
-        // Jika halaman ditutup membawa data/pesan, tampilkan pesan di layar bawah (SnackBar)
+        // menampilkan notifikasi snackbar jika ada hasil dari halaman detail
         if (result != null && context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(

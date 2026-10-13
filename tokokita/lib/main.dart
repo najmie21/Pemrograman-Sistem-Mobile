@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'screens/login_page.dart';
 import 'screens/main_page.dart'; 
 import 'screens/product_detail_page.dart';
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   return MaterialApp(
+    //mengubah materialApp menjadi GetMaterialApp
+   return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'TokoKita',
       
