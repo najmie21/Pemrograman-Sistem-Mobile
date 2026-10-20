@@ -79,19 +79,32 @@ class CartPage extends StatelessWidget {
                     margin: const EdgeInsets.only(bottom: 12),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                     child: ListTile(
-                      leading: Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 244, 135, 186),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: const Icon(Icons.image, color: Colors.white),
+                     leading: Container(
+                      width: 50,
+                      height: 50,
+                      padding: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: Colors.grey.shade300),
                       ),
+                      child: product.imageUrl.startsWith('http')
+                          ? Image.network(
+                              product.imageUrl,
+                              fit: BoxFit.contain,
+                              errorBuilder: (context, error, stackTrace) =>
+                                  const Icon(Icons.broken_image, size: 24, color: Colors.grey),
+                            )
+                          : const Icon(Icons.image, color: Color.fromARGB(255, 225, 83, 130)),
+                    ),
+
                       title: Text(product.name, style: const TextStyle(fontWeight: FontWeight.bold)),
                       subtitle: Text(
-                        'Rp ${itemPrice.toStringAsFixed(0)}',
-                        style: const TextStyle(color: Color.fromARGB(255, 225, 83, 130), fontWeight: FontWeight.w600),
+                       '\$${itemPrice.toStringAsFixed(2)}',
+                        style: const TextStyle(
+                          color: Color.fromARGB(255, 225, 83, 130), 
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
 
 
@@ -161,7 +174,7 @@ class CartPage extends StatelessWidget {
                     children: [
                       const Text('Total Harga:', style: TextStyle(fontSize: 14, color: Colors.grey)),
                       Text(
-                        'Rp ${cartController.totalHarga.toStringAsFixed(0)}',
+                        '\$${cartController.totalHarga.toStringAsFixed(2)}',
                         style: const TextStyle(
                           fontSize: 22, 
                           fontWeight: FontWeight.bold, 

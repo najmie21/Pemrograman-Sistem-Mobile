@@ -20,6 +20,21 @@ class Product {
     this.description,
   });
 
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+    //api id berupa int diubah ke string
+    id: json['id'].toString(),
+    name: json['title'] ?? '',
+    price: (json['price'] as num).toDouble(),
+    imageUrl: json['image'] ?? '',
+    category: json['category'] ?? '',
+    stock: 15,
+    description: json['description'],
+    );
+}
+
+//method 
+
 //tugas mandiri 1
   String getStatusStok() {
   if (stock > 10) {

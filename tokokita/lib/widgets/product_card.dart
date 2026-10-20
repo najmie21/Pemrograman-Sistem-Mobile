@@ -64,17 +64,45 @@ class _ProductCardState extends State<ProductCard> {
             children: [
               
               // 1. BAGIAN KIRI: GAMBAR & BADGE (Dibungkus Stack)
+                           // 1. BAGIAN KIRI: GAMBAR DARI INTERNET & BADGE (Dibungkus Stack)
               Stack(
                 children: [
                   Container(
                     height: 180,
                     width: 180,
+                    padding: const EdgeInsets.all(8), // Beri jarak sedikit agar rapi
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 244, 135, 186),
+                      color: Colors.white, // Ganti background jadi putih agar foto produk terlihat jelas
                       borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Colors.grey.shade200),
                     ),
-                    child: const Icon(Icons.image, size: 60, color: Color.fromARGB(255, 197, 19, 102)),
+                    // 👇 CEK APAKAH GAMBAR DARI URL INTERNET (HTTP) 👇
+                    child: widget.product.imageUrl.startsWith('http')
+                        ? Image.network(
+                            widget.product.imageUrl,
+                            fit: BoxFit.contain, // Agar foto produk proporsional dan tidak terpotong
+                            // Saat gambar masih loading dimuat:
+                            loadingBuilder: (context, child, loadingProgress) {
+                              if (loadingProgress == null) return child;
+                              return const Center(
+                                child: CircularProgressIndicator(strokeWidth: 2),
+                              );
+                            },
+                            // Jika gambar gagal dimuat / URL rusak:
+                            errorBuilder: (context, error, stackTrace) {
+                              return const Icon(Icons.broken_image, size: 60, color: Colors.grey);
+                            },
+                          )
+                        // Jika bukan dari internet (data dummy lokal lama), tampilkan ikon bawaan:
+                        : const Icon(
+                            Icons.image,
+                            size: 60,
+                            color: Color.fromARGB(255, 197, 19, 102),
+                          ),
                   ),
+                  
+                  // (Badge Diskon dan Badge Status Stok di bawahnya TETAP BIARKAN SAJA SEPERTI SEMULA)
+
                   
                   // Badge Diskon
                   if (widget.product is DiscountedProduct)

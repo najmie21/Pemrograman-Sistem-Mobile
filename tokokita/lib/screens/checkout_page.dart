@@ -45,9 +45,9 @@ class CheckoutPage extends StatelessWidget {
                   margin: const EdgeInsets.only(bottom: 8),
                   child: ListTile(
                     title: Text(product.name, style: const TextStyle(fontWeight: FontWeight.bold)),
-                    subtitle: Text('$quantity x Rp ${harga.toStringAsFixed(0)}'),
+                    subtitle: Text('$quantity x \$${harga.toStringAsFixed(2)}'),
                     trailing: Text(
-                      'Rp ${(harga * quantity).toStringAsFixed(0)}',
+                      '\$${(harga * quantity).toStringAsFixed(2)}',
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
@@ -81,7 +81,7 @@ class CheckoutPage extends StatelessWidget {
                       children: [
                         const Text('Total Pembayaran:', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                         Text(
-                          'Rp ${cartController.totalHarga.toStringAsFixed(0)}',
+                          '\$${cartController.totalHarga.toStringAsFixed(2)}',
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
